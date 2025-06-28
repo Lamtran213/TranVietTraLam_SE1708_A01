@@ -64,6 +64,7 @@ public class CategoryService : ICategoryService
     {
         var category = new Category
         {
+            CategoryId = updateCategory.CategoryId,
             CategoryName = updateCategory.CategoryName,
             CategoryDesciption = updateCategory.CategoryDesciption,
             ParentCategoryId = updateCategory.ParentCategoryId,

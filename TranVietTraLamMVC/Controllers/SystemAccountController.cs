@@ -117,6 +117,15 @@ namespace TranVietTraLamMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> AddSystemAccount(AddSystemAccountResponse request)
         {
+            if (request.AccountEmail != null)
+            {
+                var existingAccounts = await _systemAccountService.GetAllSystemAccountsAsync();
+                if (existingAccounts.Any(a => a.AccountEmail == request.AccountEmail))
+                {
+                    ViewBag.Error = "Email already exists. Please use a different email.";
+                    return View("ManageUser", existingAccounts);
+                }
+            }
             await _systemAccountService.AddSystemAccountAsync(request);
             var getAllAccounts = await _systemAccountService.GetAllSystemAccountsAsync();
             ViewBag.AddSystemAccountModel = getAllAccounts;

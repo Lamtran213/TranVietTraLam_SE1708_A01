@@ -4,10 +4,69 @@
 }
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+<style>
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .login-center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .login-card {
+        background: rgba(255,255,255,0.97);
+        border-radius: 24px;
+        box-shadow: 0 10px 32px rgba(0,0,0,0.15);
+        padding: 40px 32px 32px 32px;
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+    }
+    .login-avatar {
+        font-size: 60px;
+        color: #667eea;
+        margin-bottom: 18px;
+    }
+    .login-title {
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 18px;
+    }
+    .form-label {
+        font-weight: 600;
+        color: #6c757d;
+    }
+    .btn-login {
+        font-weight: 600;
+        font-size: 1.1rem;
+        border-radius: 12px;
+        margin-top: 10px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        border: none;
+        transition: background 0.2s;
+    }
+    .btn-login:hover {
+        background: linear-gradient(45deg, #764ba2, #667eea);
+    }
+    .alert {
+        font-size: 1rem;
+        border-radius: 12px;
+    }
+</style>
 
-<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
-    <div class="card p-4 shadow" style="min-width: 350px; max-width: 400px; width: 100%;">
-        <h3 class="text-center mb-4">FPT University CMS Login</h3>
+<div class="login-center-container">
+    <div class="login-card">
+        <div class="login-avatar">
+            <i class="bi bi-person-circle"></i>
+        </div>
+        <div class="login-title">FPT University CMS Login</div>
 
         @if (Model != null)
         {
@@ -20,33 +79,22 @@
         else
         {
             <form method="POST" asp-controller="SystemAccount" asp-action="Login">
-                <div class="mb-3">
+                <div class="mb-3 text-start">
                     <label for="email" class="form-label">Email address</label>
                     <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email" required />
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 text-start">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" required />
                 </div>
                 @if (!string.IsNullOrEmpty(ViewBag.Error))
                 {
                     <div class="alert alert-danger d-flex align-items-center" role="alert">
-                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Error:">
-                            <use xlink:href="#exclamation-triangle-fill"/>
-                        </svg>
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
                         <div>@ViewBag.Error</div>
                     </div>
                 }
-                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.964 0L.165 13.233c-.457.778.091
-            1.767.982 1.767h13.706c.89 0 1.438-.99.982-1.767L8.982 1.566zM8
-            5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1
-            5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                    </symbol>
-                </svg>
-
-                <button type="submit" class="btn btn-primary w-100">Login</button>
+                <button type="submit" class="btn btn-login w-100">Login</button>
             </form>
         }
     </div>

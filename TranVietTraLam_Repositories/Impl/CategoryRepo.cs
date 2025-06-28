@@ -35,16 +35,20 @@ public class CategoryRepo : ICategoryRepo
 
     public async Task<Category> UpdateCategoryAsync(Category category)
     {
-        var checkId = await GetCategoryByIdAsync(category.CategoryId);
-        if (checkId == null)
+        var existingCategory = await _context.Categories.FindAsync(category.CategoryId);
+        if (existingCategory == null)
         {
             throw new KeyNotFoundException("Category not found.");
         }
-        _context.Categories.Update(category);
-        await _context.SaveChangesAsync();
-        return category;
-    }
 
+        existingCategory.CategoryName = category.CategoryName;
+        existingCategory.CategoryDesciption = category.CategoryDesciption;
+        existingCategory.ParentCategoryId = category.ParentCategoryId;
+        existingCategory.IsActive = category.IsActive;
+
+        await _context.SaveChangesAsync();
+        return existingCategory;
+    }
     public async Task DeleteCategoryAsync(short id)
     {
         var deleteId = await GetCategoryByIdAsync(id);

@@ -54,17 +54,30 @@ public class CategoryController : Controller
     [HttpPost]
     public async Task<IActionResult> UpdateCategory(UpdateCategoryResponse category)
     {
-        if (ModelState.IsValid)
+        try
         {
-            await _categoryService.UpdateCategoryAsync(category);
-            return RedirectToAction("GetCategories");
+            if (ModelState.IsValid)
+            {
+                await _categoryService.UpdateCategoryAsync(category);
+                return RedirectToAction("GetCategories");
+            }
+
+            ViewBag.UpdateCategoryModel = category;
+            var allCategories = await _categoryService.GetCategoriesAsync();
+            return View("Category", allCategories);
         }
-
-        var allCategories = await _categoryService.GetCategoriesAsync();
-
-        ViewBag.UpdateCategoryModel = category;
-
-        return View("Category", allCategories);
+        catch (KeyNotFoundException)
+        {
+            ViewBag.Error = "Category ID not found.";
+            var allCategories = await _categoryService.GetCategoriesAsync();
+            return View("Category", allCategories);
+        }
+        catch (Exception ex)
+        {
+            ViewBag.Error = $"Unexpected error: {ex.Message}";
+            var allCategories = await _categoryService.GetCategoriesAsync();
+            return View("Category", allCategories);
+        }
     }
     [HttpPost]
     public async Task<IActionResult> DeleteCategory(short id)

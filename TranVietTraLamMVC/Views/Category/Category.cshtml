@@ -1,173 +1,263 @@
-﻿@model IEnumerable<TranVietTraLamMVC_Services.DTO.Request.GetAllCategory>
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using TranVietTraLam_Repositories.Models
+@model IEnumerable<TranVietTraLamMVC_Services.DTO.Request.GetAllCategory>
 
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8"/>
     <title>Categories</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .category-center-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-top: 40px;
+        }
+        .category-card {
+            background: rgba(255,255,255,0.97);
+            border-radius: 24px;
+            box-shadow: 0 10px 32px rgba(0,0,0,0.15);
+            padding: 32px 24px 24px 24px;
+            max-width: 1100px;
+            width: 100%;
+        }
+        .category-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .table {
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .btn-category {
+            border-radius: 12px;
+            font-weight: 600;
+        }
+        .form-label {
+            font-weight: 600;
+            color: #6c757d;
+        }
+    </style>
 </head>
 <body>
-<div class="container mt-5">
-    <h2 class="mb-4">All Categories</h2>
-    <form class="row g-3 mb-4" method="get" action="@Url.Action("GetCategory", "Category")">
-        <div class="col-auto">
-            <input name="id" class="form-control" placeholder="Enter NewsArticle ID" required/>
+<div class="category-center-container">
+    <div class="category-card">
+        <div class="category-title mb-3">
+            <i class="bi bi-tags-fill me-2"></i>Categories
         </div>
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">Search by ID</button>
-        </div>
-    </form>
-    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
-        Add Category
-    </button>
-    <!-- Modal -->
-    <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form asp-action="AddCategory" method="post">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addCategoryModalLabel">Add New Category</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div style="margin-top: 32px;">
+            <form class="row g-3 mb-4" method="get" action="@Url.Action("GetCategory", "Category")">
+                <div class="col-auto">
+                    <input name="id" class="form-control" placeholder="Enter NewsArticle ID" required/>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">Search by ID</button>
+                </div>
+            </form>
+            @if (!string.IsNullOrEmpty(ViewBag.Error as string))
+            {
+                <div class="alert alert-danger text-center">@ViewBag.Error</div>
+            }
+            <button type="button" class="btn btn-success btn-category mb-3" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+                <i class="bi bi-plus-circle me-1"></i> Add Category
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form asp-action="AddCategory" method="post">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addCategoryModalLabel"><i class="bi bi-plus-circle me-1"></i> Add New Category</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label class="form-label">Category Name</label>
+                                    <input type="text" name="CategoryName" class="form-control" required/>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Category Description</label>
+                                    <input type="text" name="CategoryDesciption" class="form-control"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Parent Category ID</label>
+                                    <input type="number" name="ParentCategoryId" class="form-control"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Is Active</label>
+                                    <select name="IsActive" class="form-select">
+                                        <option value="">-- Select --</option>
+                                        <option value="true">Yes</option>
+                                        <option value="false">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary btn-category">Add Category</button>
+                                <button type="button" class="btn btn-secondary btn-category" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                        </form>
                     </div>
+                </div>
+            </div>
+            <!-- Update Category Modal -->
+            <div class="modal fade" id="updateCategoryModal" tabindex="-1" aria-labelledby="updateCategoryModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form asp-action="UpdateCategory" method="post">
+                            <input type="hidden" name="CategoryId" id="updateCategoryId" />
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="updateCategoryModalLabel"><i class="bi bi-pencil-square me-1"></i> Update Category</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label class="form-label">Category Name</label>
+                                    <input type="text" name="CategoryName" class="form-control" required/>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Category Description</label>
+                                    <input type="text" name="CategoryDesciption" class="form-control"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Parent Category ID</label>
+                                    <input type="number" name="ParentCategoryId" class="form-control"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Is Active</label>
+                                    <select name="IsActive" class="form-select">
+                                        <option value="">-- Select --</option>
+                                        <option value="true">Yes</option>
+                                        <option value="false">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success btn-category">Update Category</button>
+                                <button type="button" class="btn btn-secondary btn-category" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <a class="btn btn-outline-primary btn-sm mb-3 shadow-sm rounded d-inline-flex align-items-center" asp-area="" asp-controller="SystemAccount" asp-action="Staff">
+                <i class="bi bi-arrow-left-circle me-2"></i>Return
+            </a>
+            <div style="overflow-x:auto;">
+                <table class="table table-bordered table-striped table-hover align-middle mt-2">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>CategoryId</th>
+                        <th>CategoryName</th>
+                        <th>CategoryDescription</th>
+                        <th>ParentCategoryId</th>
+                        <th>IsActive</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var category in Model)
+                    {
+                        <tr>
+                            <td>@category.CategoryId</td>
+                            <td>@category.CategoryName</td>
+                            <td>@category.CategoryDesciption</td>
+                            <td>@category.ParentCategoryId</td>
+                            <td>
+                                @if (category.IsActive.HasValue)
+                                {
+                                    if (category.IsActive.Value)
+                                    {
+                                        <span class="badge bg-primary">Yes</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">No</span>
+                                    }
+                                }
+                                else
+                                {
+                                    <span class="badge bg-light text-dark">N/A</span>
+                                }
+                            </td>
+                            <td class="d-flex gap-2 align-items-center">
+                                <button type="button"
+                                        class="btn btn-warning btn-category"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#updateCategoryModal"
+                                        data-category-id="@category.CategoryId"
+                                        data-category-name="@category.CategoryName"
+                                        data-category-desc="@category.CategoryDesciption"
+                                        data-parent-id="@category.ParentCategoryId"
+                                        data-is-active="@category.IsActive">
+                                    Update
+                                </button>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        const updateModal = document.getElementById('updateCategoryModal');
+                                        updateModal.addEventListener('show.bs.modal', function (event) {
+                                            const button = event.relatedTarget;
 
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label class="form-label">Category Name</label>
-                            <input type="text" name="CategoryName" class="form-control" required/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Category Description</label>
-                            <input type="text" name="CategoryDesciption" class="form-control"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Parent Category ID</label>
-                            <input type="number" name="ParentCategoryId" class="form-control"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Is Active</label>
-                            <select name="IsActive" class="form-select">
-                                <option value="">-- Select --</option>
-                                <option value="true">Yes</option>
-                                <option value="false">No</option>
-                            </select>
-                        </div>
-                    </div>
+                                            const id = button.getAttribute('data-category-id');
+                                            const name = button.getAttribute('data-category-name');
+                                            const desc = button.getAttribute('data-category-desc');
+                                            const parentId = button.getAttribute('data-parent-id');
+                                            const isActive = button.getAttribute('data-is-active');
 
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Add Category</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    </div>
-                </form>
+                                            updateModal.querySelector('#updateCategoryId').value = id;
+                                            updateModal.querySelector('input[name="CategoryName"]').value = name;
+                                            updateModal.querySelector('input[name="CategoryDesciption"]').value = desc;
+                                            updateModal.querySelector('input[name="ParentCategoryId"]').value = parentId;
+                                            updateModal.querySelector('select[name="IsActive"]').value = isActive.toLowerCase();
+                                        });
+                                    });
+                                </script>
+                                <form id="deleteForm-@category.CategoryId" asp-action="DeleteCategory" asp-controller="Category" method="post" style="display:inline;">
+                                    <input type="hidden" name="id" value="@category.CategoryId" />
+                                    <button type="button" class="btn btn-danger btn-category" onclick="confirmDelete(@category.CategoryId)">
+                                        Delete
+                                    </button>
+                                </form>
+                                <script>
+                                    function confirmDelete(categoryId) {
+                                        if (confirm('Are you sure?')) {
+                                            document.getElementById('deleteForm-' + categoryId).submit();
+                                            alert('Category deleted successfully.');
+                                        } else {
+                                            alert('Category deletion cancelled.');
+                                        }
+                                    }
+                                </script>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-
-    <!-- Update Category Modal -->
-    <div class="modal fade" id="updateCategoryModal" tabindex="-1" aria-labelledby="updateCategoryModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form asp-action="UpdateCategory" method="post">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="updateCategoryModalLabel">Update Category</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label class="form-label">Category Name</label>
-                            <input type="text" name="CategoryName" class="form-control" required/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Category Description</label>
-                            <input type="text" name="CategoryDesciption" class="form-control"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Parent Category ID</label>
-                            <input type="number" name="ParentCategoryId" class="form-control"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Is Active</label>
-                            <select name="IsActive" class="form-select">
-                                <option value="">-- Select --</option>
-                                <option value="true">Yes</option>
-                                <option value="false">No</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Update Category</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <a class="btn btn-outline-primary btn-sm mb-3 shadow-sm rounded d-inline-flex align-items-center" asp-area=""
-       asp-controller="SystemAccount" asp-action="Staff">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-             class="bi bi-arrow-left-circle me-2" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-            <path fill-rule="evenodd"
-                  d="M8.354 11.354a.5.5 0 0 0 0-.708L6.707 9H11.5a.5.5 0 0 0 0-1H6.707l1.647-1.646a.5.5 0 0 0-.708-.708l-2.5 2.5a.5.5 0 0 0 0 .708l2.5 2.5a.5.5 0 0 0 .708 0z"/>
-        </svg>
-        Return
-    </a>
-    <table class="table table-bordered table-striped table-hover">
-        <thead class="table-dark">
-        <tr>
-            <th>CategoryId</th>
-            <th>CategoryName</th>
-            <th>CategoryDescription</th>
-            <th>ParentCategoryId</th>
-            <th>IsActive</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var category in Model)
-        {
-            <tr>
-                <td>@category.CategoryId</td>
-                <td>@category.CategoryName</td>
-                <td>@category.CategoryDesciption</td>
-                <td>@category.ParentCategoryId</td>
-                <td>@(category.IsActive.HasValue ? (category.IsActive.Value ? "Yes" : "No") : "N/A")</td>
-                <td class="d-flex gap-2">
-                    <button type="button" class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#updateCategoryModal">
-                        Update
-                    </button>
-                    <form id="deleteForm-@category.CategoryId" asp-action="DeleteCategory" asp-controller="Category" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="@category.CategoryId" />
-                        <button type="button" class="btn btn-danger mb-3" onclick="confirmDelete(@category.CategoryId)">
-                            Delete
-                        </button>
-                    </form>
-
-                    <script>
-                        function confirmDelete(categoryId) {
-                            if (confirm('Are you sure?')) {
-                                document.getElementById('deleteForm-' + categoryId).submit();
-                                alert('Category deleted successfully.');
-                            } else {
-                                alert('Category deletion cancelled.');
-                            }
-                        }
-                    </script>
-
-                </td>
-            </tr>
-        }
-        </tbody>
-    </table>
 </div>
-</body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

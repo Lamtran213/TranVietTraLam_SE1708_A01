@@ -5,175 +5,210 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8"/>
     <title>Users</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .manageuser-center-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-top: 40px;
+        }
+        .manageuser-card {
+            background: rgba(255,255,255,0.97);
+            border-radius: 24px;
+            box-shadow: 0 10px 32px rgba(0,0,0,0.15);
+            padding: 32px 24px 24px 24px;
+            max-width: 1100px;
+            width: 100%;
+        }
+        .manageuser-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .table {
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .btn-manageuser {
+            border-radius: 12px;
+            font-weight: 600;
+        }
+        .modal-content {
+            border-radius: 18px;
+        }
+        .form-label {
+            font-weight: 600;
+            color: #6c757d;
+        }
+        .search-form {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-bottom: 18px;
+        }
+     
+    </style>
 </head>
 <body>
-<div class="container mt-5">
-    <h2 class="mb-4">All Users</h2>
-    <form class="row g-3 mb-4" method="get" action="@Url.Action("GetSystemAccountById", "SystemAccount")">
-        <div class="col-auto">
-            <input name="id" class="form-control" placeholder="Enter NewsArticle ID" required/>
+<div class="manageuser-center-container">
+    <div class="manageuser-card">
+        <div class="manageuser-title mb-3">
+            <i class="bi bi-people-fill me-2"></i>All Users
         </div>
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">Search by ID</button>
-        </div>
-    </form>
-    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
-        Add Users
-    </button>
-    <!-- Modal -->
-    <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form asp-action="AddSystemAccount" method="post">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addCategoryModalLabel">Add New Users</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-
-                    <div class="modal-body">
-                        <input type="hidden" name="AccountId" id="" />
-
-                        <div class="mb-3">
-                            <label class="form-label">AccountName</label>
-                            <input type="text" name="AccountName" class="form-control" required/>
+        <form class="search-form mb-4" method="get" action="@Url.Action("GetSystemAccountById", "SystemAccount")">
+            <input name="id" class="form-control" placeholder="Enter User ID" required style="max-width: 200px;"/>
+            <button type="submit" class="btn btn-outline-primary btn-manageuser"><i class="bi bi-search"></i> Search by ID</button>
+        </form>
+        <button type="button" class="btn btn-success btn-manageuser mb-3" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+            <i class="bi bi-person-plus-fill me-1"></i> Add Users
+        </button>
+        <!-- Modal Add User -->
+        <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form asp-action="AddSystemAccount" method="post">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addCategoryModalLabel"><i class="bi bi-person-plus-fill me-1"></i> Add New Users</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">AccountEmail</label>
-                            <input type="text" name="AccountEmail" class="form-control"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">AccountRole</label>
-                            <input type="number" name="AccountRole" class="form-control"/>
-                        </div>
-                        <div class="mb-3">
+                        <div class="modal-body">
+                            <input type="hidden" name="AccountId" id="" />
+                            <div class="mb-3">
+                                <label class="form-label">Account Name</label>
+                                <input type="text" name="AccountName" class="form-control" required/>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Account Email</label>
+                                <input type="text" name="AccountEmail" class="form-control"/>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Account Role</label>
+                                <input type="number" name="AccountRole" class="form-control"/>
+                            </div>
                             <input type="hidden" name="AccountPassword" class="form-control"/>
                         </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Add Users</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Update Category Modal -->
-    <div class="modal fade" id="updateCategoryModal" tabindex="-1" aria-labelledby="updateCategoryModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form asp-action="UpdateSystemAccount" method="post">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="updateCategoryModalLabel">Update Users</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-
-                    <div class="modal-body">
-                        <input type="hidden" name="AccountId" id="updateAccountId" />
-                        <div class="mb-3">
-                            <label class="form-label">AccountName</label>
-                            <input type="text" name="AccountName" id="updateAccountName" class="form-control" required/>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary btn-manageuser">Add Users</button>
+                            <button type="button" class="btn btn-secondary btn-manageuser" data-bs-dismiss="modal">Cancel</button>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">AccountEmail</label>
-                            <input type="text" name="AccountEmail" id="updateAccountEmail" class="form-control"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">AccountRole</label>
-                            <input type="number" name="AccountRole" id="updateAccountRole" class="form-control"/>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Update</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <a class="btn btn-outline-primary btn-sm mb-3 shadow-sm rounded d-inline-flex align-items-center"
-       asp-controller="SystemAccount" asp-action="Staff">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-             class="bi bi-arrow-left-circle me-2" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-            <path fill-rule="evenodd"
-                  d="M8.354 11.354a.5.5 0 0 0 0-.708L6.707 9H11.5a.5.5 0 0 0 0-1H6.707l1.647-1.646a.5.5 0 0 0-.708-.708l-2.5 2.5a.5.5 0 0 0 0 .708l2.5 2.5a.5.5 0 0 0 .708 0z"/>
-        </svg>
-        Return
-    </a>
-    <table class="table table-bordered table-striped table-hover">
-        <thead class="table-dark">
-        <tr>
-            <th>AccountId</th>
-            <th>AccountName</th>
-            <th>AccountEmail</th>
-            <th>AccountRole</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var category in Model)
-        {
-            <tr>
-                <td>@category.AccountId</td>
-                <td>@category.AccountName</td>
-                <td>@category.AccountEmail</td>
-                <td>@category.AccountRole</td>
-                <td class="d-flex gap-2">
-                    <button type="button" class="btn btn-warning mb-3"
-                            data-bs-toggle="modal"
-                            data-bs-target="#updateCategoryModal"
-                            onclick="loadEditData(
-                            '@category.AccountId',
-                            '@category.AccountName',
-                            '@category.AccountEmail',
-                            '@category.AccountRole',
-                            )">
-                        Update
-                    </button>
-                    <script>
-                        function loadEditData(id, name, email, role) {
-                            document.getElementById("updateAccountId").value = id;
-                            document.getElementById("updateAccountName").value = name;
-                            document.getElementById("updateAccountEmail").value = email;
-                            document.getElementById("updateAccountRole").value = role;
-                        }
-                    </script>
-                    <form id="deleteForm-@category.AccountId" asp-action="DeleteSystemAccount" asp-controller="SystemAccount" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="@category.AccountId" />
-                        <button type="button" class="btn btn-danger mb-3" onclick="confirmDelete(@category.AccountId)">
-                            Delete
-                        </button>
                     </form>
-
-                    <script>
-                        function confirmDelete(categoryId) {
-                            if (confirm('Are you sure?')) {
-                                document.getElementById('deleteForm-' + categoryId).submit();
-                                alert('Category deleted successfully.');
-                            } else {
-                                alert('Category deletion cancelled.');
-                            }
-                        }
-                    </script>
-
-                </td>
-            </tr>
-        }
-        </tbody>
-    </table>
+                </div>
+            </div>
+            @if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <div class="alert alert-danger text-center">
+                    @ViewBag.Error
+                </div>
+            }
+        </div>
+        <!-- Modal Update User -->
+        <div class="modal fade" id="updateCategoryModal" tabindex="-1" aria-labelledby="updateCategoryModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form asp-action="UpdateSystemAccount" method="post">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="updateCategoryModalLabel"><i class="bi bi-pencil-square me-1"></i> Update Users</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="hidden" name="AccountId" id="updateAccountId" />
+                            <div class="mb-3">
+                                <label class="form-label">Account Name</label>
+                                <input type="text" name="AccountName" id="updateAccountName" class="form-control" required/>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Account Email</label>
+                                <input type="text" name="AccountEmail" id="updateAccountEmail" class="form-control"/>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Account Role</label>
+                                <input type="number" name="AccountRole" id="updateAccountRole" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success btn-manageuser">Update</button>
+                            <button type="button" class="btn btn-secondary btn-manageuser" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-outline-primary btn-sm mb-3 shadow-sm rounded d-inline-flex align-items-center" asp-controller="SystemAccount" asp-action="Staff">
+            <i class="bi bi-arrow-left-circle me-2"></i>Return
+        </a>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover align-middle mt-2">
+                <thead class="table-dark">
+                <tr>
+                    <th>AccountId</th>
+                    <th>AccountName</th>
+                    <th>AccountEmail</th>
+                    <th>AccountRole</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var category in Model)
+                {
+                    <tr>
+                        <td>@category.AccountId</td>
+                        <td>@category.AccountName</td>
+                        <td>@category.AccountEmail</td>
+                        <td>@category.AccountRole</td>
+                        <td class="d-flex gap-2">
+                            <button type="button" class="btn btn-warning btn-manageuser" data-bs-toggle="modal" data-bs-target="#updateCategoryModal" onclick="loadEditData('@category.AccountId','@category.AccountName','@category.AccountEmail','@category.AccountRole')">
+                                <i class="bi bi-pencil-square"></i> Update
+                            </button>
+                            <form id="deleteForm-@category.AccountId" asp-action="DeleteSystemAccount" asp-controller="SystemAccount" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="@category.AccountId" />
+                                <button type="button" class="btn btn-danger btn-manageuser" onclick="confirmDelete(@category.AccountId)">
+                                    <i class="bi bi-trash"></i> Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-</body>
+<script>
+    function loadEditData(id, name, email, role) {
+        document.getElementById("updateAccountId").value = id;
+        document.getElementById("updateAccountName").value = name;
+        document.getElementById("updateAccountEmail").value = email;
+        document.getElementById("updateAccountRole").value = role;
+    }
+    function confirmDelete(categoryId) {
+        if (confirm('Are you sure?')) {
+            document.getElementById('deleteForm-' + categoryId).submit();
+            alert('User deleted successfully.');
+        } else {
+            alert('User deletion cancelled.');
+        }
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

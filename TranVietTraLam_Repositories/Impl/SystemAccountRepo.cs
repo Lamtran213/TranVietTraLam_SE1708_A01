@@ -67,8 +67,8 @@ namespace TranVietTraLam_Repositories.Impl
 
         public async Task<SystemAccount> AddSystemAccountAsync(SystemAccount systemAccount)
         {
-            var newId = (short)(_context.SystemAccounts.Count() + 1);
-            systemAccount.AccountId = newId;
+            var maxId = await _context.SystemAccounts.MaxAsync(a => (short?)a.AccountId) ?? 0;
+            systemAccount.AccountId = (short)(maxId + 1);
             _context.SystemAccounts.Add(systemAccount);
             await _context.SaveChangesAsync();
             return await Task.FromResult(systemAccount);
