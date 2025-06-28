@@ -1,0 +1,109 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<ASM_01_SE1708_SE182432_Services.DTO.Request.GetAllNewsArticle>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>News Articles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">All News Articles</h2>
+    <form class="row g-3 mb-4" method="get" action="@Url.Action("GetNewsArticleById", "NewsArticle")">
+        <div class="col-auto">
+            <input name="id" class="form-control" placeholder="Enter NewsArticle ID" required />
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Search by ID</button>
+        </div>
+    </form>
+    <a class="btn btn-outline-primary btn-sm mb-3 shadow-sm rounded d-inline-flex align-items-center" asp-area="" asp-controller="SystemAccount" asp-action="Lecturer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle me-2" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path fill-rule="evenodd" d="M8.354 11.354a.5.5 0 0 0 0-.708L6.707 9H11.5a.5.5 0 0 0 0-1H6.707l1.647-1.646a.5.5 0 0 0-.708-.708l-2.5 2.5a.5.5 0 0 0 0 .708l2.5 2.5a.5.5 0 0 0 .708 0z"/>
+        </svg>
+        Return
+    </a>
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+        <tr>
+            <th>NewsArticleId</th>
+            <th>NewsTitle</th>
+            <th>Headline</th>
+            <th>CreatedDate</th>
+            <th>NewsContent</th>
+            <th>NewsSource</th>
+            <th>CategoryId</th>
+            <th>NewsStatus</th>
+            <th>Tags</th>
+            <th>ModifiedDate</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var article in Model)
+        {
+            <tr>
+                <td>@article.NewsArticleId</td>
+                <td>@article.NewsTitle</td>
+                <td>@article.Headline</td>
+                <td>@article.CreatedDate?.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#detailContent">
+                        Open
+                    </button>
+                    <div class="modal fade" id="detailContent" tabindex="-1" aria-labelledby="detailContentLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="detailContentLabel">News Content</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>@article.NewsContent</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>@article.NewsSource</td>
+                <td>@article.CategoryId</td>
+                <td>
+                    @if (article.NewsStatus == true)
+                    {
+                        <span class="badge bg-success">Published</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">Draft</span>
+                    }
+                </td>
+
+                <td>
+                    @if (article.Tags != null && article.Tags.Any())
+                    {
+                        foreach (var tag in article.Tags)
+                        {
+                            <span class="badge bg-primary me-1">@tag.TagName</span>
+                        }
+                    }
+                    else
+                    {
+                        <span>No tags</span>
+                    }
+                </td>
+                <td>@article.ModifiedDate?.ToString("yyyy-MM-dd")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

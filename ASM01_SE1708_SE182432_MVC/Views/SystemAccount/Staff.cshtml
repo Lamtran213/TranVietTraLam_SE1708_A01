@@ -1,0 +1,80 @@
+﻿@model ASM_01_SE1708_SE182432_Repositories.Models.SystemAccount
+
+@Html.Partial("_StaffHeader", Model)
+
+@{
+    Layout = null;
+    string roleName = Model.AccountRole switch
+    {
+        0 => "Admin",
+        1 => "Staff",
+        2 => "Lecturer",
+        _ => "Unknown"
+    };
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Staff Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .profile-card {
+            max-width: 600px;
+            margin: 50px auto;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: #fff;
+            padding: 30px;
+        }
+
+        .profile-icon {
+            font-size: 48px;
+            color: #0d6efd;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #6c757d;
+        }
+
+        .info-value {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-card text-center">
+            <div class="mb-4">
+                <i class="bi bi-person-circle profile-icon"></i>
+                <h3 class="mt-3">Staff Information</h3>
+            </div>
+
+            <div class="text-start mb-3">
+                <div class="info-label">Account Name</div>
+                <div class="info-value">@Model.AccountName</div>
+            </div>
+
+            <div class="text-start mb-3">
+                <div class="info-label">Account Email</div>
+                <div class="info-value">@Model.AccountEmail</div>
+            </div>
+
+            <div class="text-start">
+                <div class="info-label">Account Role</div>
+                <div class="info-value">@roleName</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+</body>
+</html>

@@ -1,0 +1,97 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ASM01_SE1708_SE182432_MVC
+build_property.RootNamespace = ASM01_SE1708_SE182432_MVC
+build_property.ProjectDir = C:\Users\ADMIN LAM\OneDrive\Documents\Visual Studio 2022\ASM01_SE1708_SE182432_MVC\ASM01_SE1708_SE182432_MVC\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\ADMIN LAM\OneDrive\Documents\Visual Studio 2022\ASM01_SE1708_SE182432_MVC\ASM01_SE1708_SE182432_MVC
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/Category/Category.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/NewsArticle/NewsArticle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c0FydGljbGVcTmV3c0FydGljbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/NewsArticle/NewsArticleForStaff.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c0FydGljbGVcTmV3c0FydGljbGVGb3JTdGFmZi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/NewsArticle/ReportStatistic.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c0FydGljbGVcUmVwb3J0U3RhdGlzdGljLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/NewsArticle/ViewHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c0FydGljbGVcVmlld0hpc3RvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/Shared/_AdminHeader.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkhlYWRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/Shared/_LecturerHeader.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MZWN0dXJlckhlYWRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/Shared/_StaffHeader.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TdGFmZkhlYWRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/SystemAccount/Admin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWNjb3VudFxBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/SystemAccount/Lecturer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWNjb3VudFxMZWN0dXJlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/SystemAccount/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/SystemAccount/ManageUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWNjb3VudFxNYW5hZ2VVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/SystemAccount/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/SystemAccount/Staff.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWNjb3VudFxTdGFmZi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN LAM/OneDrive/Documents/Visual Studio 2022/ASM01_SE1708_SE182432_MVC/ASM01_SE1708_SE182432_MVC/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-s9qyn0wmq9
