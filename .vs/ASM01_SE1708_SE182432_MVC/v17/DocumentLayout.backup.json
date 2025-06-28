@@ -1,32 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\ADMIN LAM\\OneDrive\\Documents\\Visual Studio 2022\\ASM01_SE1708_SE182432_MVC\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{6962E902-B8F1-430A-A82C-123A29896D57}|ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC.csproj|c:\\users\\admin lam\\onedrive\\documents\\visual studio 2022\\asm01_se1708_se182432_mvc\\asm01_se1708_se182432_mvc\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6962E902-B8F1-430A-A82C-123A29896D57}|ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC.csproj|solutionrelative:asm01_se1708_se182432_mvc\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6962E902-B8F1-430A-A82C-123A29896D57}|ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC.csproj|c:\\users\\admin lam\\onedrive\\documents\\visual studio 2022\\asm01_se1708_se182432_mvc\\asm01_se1708_se182432_mvc\\controllers\\newsarticlecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6962E902-B8F1-430A-A82C-123A29896D57}|ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC.csproj|solutionrelative:asm01_se1708_se182432_mvc\\controllers\\newsarticlecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6962E902-B8F1-430A-A82C-123A29896D57}|ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC.csproj|c:\\users\\admin lam\\onedrive\\documents\\visual studio 2022\\asm01_se1708_se182432_mvc\\asm01_se1708_se182432_mvc\\views\\category\\category.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6962E902-B8F1-430A-A82C-123A29896D57}|ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC.csproj|solutionrelative:asm01_se1708_se182432_mvc\\views\\category\\category.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6962E902-B8F1-430A-A82C-123A29896D57}|ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC.csproj|c:\\users\\admin lam\\onedrive\\documents\\visual studio 2022\\asm01_se1708_se182432_mvc\\asm01_se1708_se182432_mvc\\views\\newsarticle\\newsarticle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6962E902-B8F1-430A-A82C-123A29896D57}|ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC.csproj|solutionrelative:asm01_se1708_se182432_mvc\\views\\newsarticle\\newsarticle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6962E902-B8F1-430A-A82C-123A29896D57}|ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC.csproj|c:\\users\\admin lam\\onedrive\\documents\\visual studio 2022\\asm01_se1708_se182432_mvc\\asm01_se1708_se182432_mvc\\views\\shared\\_staffheader.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6962E902-B8F1-430A-A82C-123A29896D57}|ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC.csproj|solutionrelative:asm01_se1708_se182432_mvc\\views\\shared\\_staffheader.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6962E902-B8F1-430A-A82C-123A29896D57}|ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC.csproj|c:\\users\\admin lam\\onedrive\\documents\\visual studio 2022\\asm01_se1708_se182432_mvc\\asm01_se1708_se182432_mvc\\views\\systemaccount\\staff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6962E902-B8F1-430A-A82C-123A29896D57}|ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC.csproj|solutionrelative:asm01_se1708_se182432_mvc\\views\\systemaccount\\staff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -34,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,84 +18,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NewsArticle.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN LAM\\OneDrive\\Documents\\Visual Studio 2022\\ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC\\Views\\NewsArticle\\NewsArticle.cshtml",
-              "RelativeDocumentMoniker": "ASM01_SE1708_SE182432_MVC\\Views\\NewsArticle\\NewsArticle.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN LAM\\OneDrive\\Documents\\Visual Studio 2022\\ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC\\Views\\NewsArticle\\NewsArticle.cshtml",
-              "RelativeToolTip": "ASM01_SE1708_SE182432_MVC\\Views\\NewsArticle\\NewsArticle.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T07:55:27.315Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "_StaffHeader.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN LAM\\OneDrive\\Documents\\Visual Studio 2022\\ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC\\Views\\Shared\\_StaffHeader.cshtml",
-              "RelativeDocumentMoniker": "ASM01_SE1708_SE182432_MVC\\Views\\Shared\\_StaffHeader.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN LAM\\OneDrive\\Documents\\Visual Studio 2022\\ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC\\Views\\Shared\\_StaffHeader.cshtml",
-              "RelativeToolTip": "ASM01_SE1708_SE182432_MVC\\Views\\Shared\\_StaffHeader.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T07:53:05.148Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Staff.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN LAM\\OneDrive\\Documents\\Visual Studio 2022\\ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC\\Views\\SystemAccount\\Staff.cshtml",
-              "RelativeDocumentMoniker": "ASM01_SE1708_SE182432_MVC\\Views\\SystemAccount\\Staff.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN LAM\\OneDrive\\Documents\\Visual Studio 2022\\ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC\\Views\\SystemAccount\\Staff.cshtml",
-              "RelativeToolTip": "ASM01_SE1708_SE182432_MVC\\Views\\SystemAccount\\Staff.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T07:52:46.9Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Category.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN LAM\\OneDrive\\Documents\\Visual Studio 2022\\ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC\\Views\\Category\\Category.cshtml",
-              "RelativeDocumentMoniker": "ASM01_SE1708_SE182432_MVC\\Views\\Category\\Category.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN LAM\\OneDrive\\Documents\\Visual Studio 2022\\ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC\\Views\\Category\\Category.cshtml",
-              "RelativeToolTip": "ASM01_SE1708_SE182432_MVC\\Views\\Category\\Category.cshtml",
-              "ViewState": "AgIAABEAAAAAAAAAAAAmwDkAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T07:52:45.11Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "NewsArticleController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN LAM\\OneDrive\\Documents\\Visual Studio 2022\\ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC\\Controllers\\NewsArticleController.cs",
-              "RelativeDocumentMoniker": "ASM01_SE1708_SE182432_MVC\\Controllers\\NewsArticleController.cs",
-              "ToolTip": "C:\\Users\\ADMIN LAM\\OneDrive\\Documents\\Visual Studio 2022\\ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC\\Controllers\\NewsArticleController.cs",
-              "RelativeToolTip": "ASM01_SE1708_SE182432_MVC\\Controllers\\NewsArticleController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T07:51:52.02Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CategoryController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN LAM\\OneDrive\\Documents\\Visual Studio 2022\\ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC\\Controllers\\CategoryController.cs",
-              "RelativeDocumentMoniker": "ASM01_SE1708_SE182432_MVC\\Controllers\\CategoryController.cs",
-              "ToolTip": "C:\\Users\\ADMIN LAM\\OneDrive\\Documents\\Visual Studio 2022\\ASM01_SE1708_SE182432_MVC\\ASM01_SE1708_SE182432_MVC\\Controllers\\CategoryController.cs",
-              "RelativeToolTip": "ASM01_SE1708_SE182432_MVC\\Controllers\\CategoryController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T07:51:51.09Z",
-              "EditorCaption": ""
             }
           ]
         }

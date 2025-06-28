@@ -1,0 +1,179 @@
+﻿@model IEnumerable<TranVietTraLamMVC_Services.DTO.Request.GetAllSystemAccount>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Users</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">All Users</h2>
+    <form class="row g-3 mb-4" method="get" action="@Url.Action("GetSystemAccountById", "SystemAccount")">
+        <div class="col-auto">
+            <input name="id" class="form-control" placeholder="Enter NewsArticle ID" required/>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Search by ID</button>
+        </div>
+    </form>
+    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+        Add Users
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form asp-action="AddSystemAccount" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addCategoryModalLabel">Add New Users</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <input type="hidden" name="AccountId" id="" />
+
+                        <div class="mb-3">
+                            <label class="form-label">AccountName</label>
+                            <input type="text" name="AccountName" class="form-control" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">AccountEmail</label>
+                            <input type="text" name="AccountEmail" class="form-control"/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">AccountRole</label>
+                            <input type="number" name="AccountRole" class="form-control"/>
+                        </div>
+                        <div class="mb-3">
+                            <input type="hidden" name="AccountPassword" class="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Add Users</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Category Modal -->
+    <div class="modal fade" id="updateCategoryModal" tabindex="-1" aria-labelledby="updateCategoryModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form asp-action="UpdateSystemAccount" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="updateCategoryModalLabel">Update Users</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <input type="hidden" name="AccountId" id="updateAccountId" />
+                        <div class="mb-3">
+                            <label class="form-label">AccountName</label>
+                            <input type="text" name="AccountName" id="updateAccountName" class="form-control" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">AccountEmail</label>
+                            <input type="text" name="AccountEmail" id="updateAccountEmail" class="form-control"/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">AccountRole</label>
+                            <input type="number" name="AccountRole" id="updateAccountRole" class="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <a class="btn btn-outline-primary btn-sm mb-3 shadow-sm rounded d-inline-flex align-items-center"
+       asp-controller="SystemAccount" asp-action="Staff">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+             class="bi bi-arrow-left-circle me-2" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path fill-rule="evenodd"
+                  d="M8.354 11.354a.5.5 0 0 0 0-.708L6.707 9H11.5a.5.5 0 0 0 0-1H6.707l1.647-1.646a.5.5 0 0 0-.708-.708l-2.5 2.5a.5.5 0 0 0 0 .708l2.5 2.5a.5.5 0 0 0 .708 0z"/>
+        </svg>
+        Return
+    </a>
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+        <tr>
+            <th>AccountId</th>
+            <th>AccountName</th>
+            <th>AccountEmail</th>
+            <th>AccountRole</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.AccountId</td>
+                <td>@category.AccountName</td>
+                <td>@category.AccountEmail</td>
+                <td>@category.AccountRole</td>
+                <td class="d-flex gap-2">
+                    <button type="button" class="btn btn-warning mb-3"
+                            data-bs-toggle="modal"
+                            data-bs-target="#updateCategoryModal"
+                            onclick="loadEditData(
+                            '@category.AccountId',
+                            '@category.AccountName',
+                            '@category.AccountEmail',
+                            '@category.AccountRole',
+                            )">
+                        Update
+                    </button>
+                    <script>
+                        function loadEditData(id, name, email, role) {
+                            document.getElementById("updateAccountId").value = id;
+                            document.getElementById("updateAccountName").value = name;
+                            document.getElementById("updateAccountEmail").value = email;
+                            document.getElementById("updateAccountRole").value = role;
+                        }
+                    </script>
+                    <form id="deleteForm-@category.AccountId" asp-action="DeleteSystemAccount" asp-controller="SystemAccount" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@category.AccountId" />
+                        <button type="button" class="btn btn-danger mb-3" onclick="confirmDelete(@category.AccountId)">
+                            Delete
+                        </button>
+                    </form>
+
+                    <script>
+                        function confirmDelete(categoryId) {
+                            if (confirm('Are you sure?')) {
+                                document.getElementById('deleteForm-' + categoryId).submit();
+                                alert('Category deleted successfully.');
+                            } else {
+                                alert('Category deletion cancelled.');
+                            }
+                        }
+                    </script>
+
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</html>
