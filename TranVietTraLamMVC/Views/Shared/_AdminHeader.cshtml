@@ -51,9 +51,7 @@ body { margin-left: 220px; }
 <div class="sidebar">
     <div class="sidebar-title">FPT University CMS</div>
     <nav class="nav flex-column">
-        <a class="nav-link active" href="@Url.Action("Staff", "SystemAccount")">Home</a>
-        <a class="nav-link" asp-controller="Category" asp-action="GetCategories">Categories</a>
-        <a class="nav-link" asp-controller="NewsArticle" asp-action="NewsArticleForStaff">News Articles</a>
+        <a class="nav-link active" asp-controller="SystemAccount" asp-action="Admin">Home</a>
         <a class="nav-link" asp-controller="SystemAccount" asp-action="GetAllSystemAccounts">Users</a>
         <a class="nav-link" asp-controller="NewsArticle" asp-action="GetAllFilter">Report</a>
     </nav>

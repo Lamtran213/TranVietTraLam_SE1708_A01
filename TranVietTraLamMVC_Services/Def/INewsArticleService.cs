@@ -20,5 +20,6 @@ namespace TranVietTraLamMVC_Services.Def
         public Task<IEnumerable<GetAllNewsArticle>> FilterByDateAsync(DateTime startDate, DateTime endDate);
         protected Task<List<Tag>> GetTagsByIdsAsync(List<int> tagIds);
         public Task<IEnumerable<ViewNewsArticleHistory>> ViewNewsArticleByStaffId(short id);
+        public Task<int> GetTotalNewsArticlesAsync();
     }
 }

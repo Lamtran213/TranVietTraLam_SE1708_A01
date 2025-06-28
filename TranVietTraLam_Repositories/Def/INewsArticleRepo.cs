@@ -14,5 +14,6 @@ namespace TranVietTraLam_Repositories.Def
         public Task<IEnumerable<NewsArticle>> DescendingByDateAsync();  
         public Task<List<Tag>> GetTagsByIdsAsync(List<int> tagIds);
         public Task<IEnumerable<NewsArticle>> ViewNewsArticleByStaffId(short id);
+        public Task<int> GetTotalNewsArticlesAsync();
     }
 }

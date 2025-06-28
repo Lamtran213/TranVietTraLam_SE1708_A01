@@ -61,6 +61,12 @@ namespace TranVietTraLam_Repositories.Impl
             return articles;
         }
 
+        public async Task<int> GetTotalNewsArticlesAsync()
+        {
+            var totalArticles = await _context.NewsArticles.CountAsync(a=> a.NewsArticleId != null);
+            return totalArticles;
+        }
+
         public async Task<NewsArticle> UpdateAsync(NewsArticle newsArticle)
         {
             var existingArticle = await _context.NewsArticles

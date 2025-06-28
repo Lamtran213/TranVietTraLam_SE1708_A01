@@ -121,6 +121,12 @@ namespace TranVietTraLamMVC_Services.Impl
             }).ToList();
         }
 
+        public async Task<int> GetTotalNewsArticlesAsync()
+        {
+            var totalArticles = await _newsArticleRepo.GetTotalNewsArticlesAsync();
+            return totalArticles;
+        }
+
         public async Task<NewsArticle> AddAsync(AddNewsArticleResponse request)
         {
             var tags = await GetTagsByIdsAsync(request.SelectedTagIds);

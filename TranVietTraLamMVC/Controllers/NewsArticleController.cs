@@ -123,24 +123,56 @@ namespace TranVietTraLamMVC.Controllers
         public async Task<IActionResult> GetAllFilter()
         {
             var allNewsArticle = await _newsArticleService.GetAllAsyncStaff();
+
+            var totalArticles = await _newsArticleService.GetTotalNewsArticlesAsync();
+            ViewBag.TotalArticles = totalArticles;
+
             if (!allNewsArticle.Any())
             {
                 ViewBag.Error = "No news articles found.";
-                return View("NewsArticleForStaff");
-            }
-            return View("ReportStatistic", allNewsArticle);
-        }
-        [HttpGet]
-        public async Task<IActionResult> FilterByDate(DateTime startDate, DateTime endDate)
-        {
-            var filteredArticles = await _newsArticleService.FilterByDateAsync(startDate, endDate);
-            if (!filteredArticles.Any())
-            {
-                ViewBag.Error = "No news articles found for the selected date range.";
                 return View("ReportStatistic");
             }
+
+            return View("ReportStatistic", allNewsArticle);
+        }
+
+
+        public async Task<IActionResult> FilterByDate(DateTime? startDate, DateTime? endDate)
+        {
+            IEnumerable<GetAllNewsArticle> filteredArticles;
+
+            if (!Request.Query.ContainsKey("startDate") || !Request.Query.ContainsKey("endDate"))
+            {
+                filteredArticles = await _newsArticleService.GetAllAsyncStaff();
+            }
+            else
+            {
+                if (startDate == null || endDate == null)
+                {
+                    ViewBag.Error = "Please select both start and end dates.";
+                    filteredArticles = new List<GetAllNewsArticle>();
+                }
+                else if (startDate > endDate)
+                {
+                    ViewBag.Error = "Start date must be before or equal to end date.";
+                    filteredArticles = new List<GetAllNewsArticle>();
+                }
+                else
+                {
+                    filteredArticles = await _newsArticleService.FilterByDateAsync(startDate.Value, endDate.Value);
+                    if (!filteredArticles.Any())
+                    {
+                        ViewBag.Error = "No news articles found for the selected date range.";
+                    }
+                }
+            }
+
+            ViewBag.TotalArticles = filteredArticles.Count();
+
             return View("ReportStatistic", filteredArticles);
         }
+
+
         [HttpGet]
         public async Task<IActionResult> ViewNewsArticleByStaffId(short id)
         {
@@ -156,6 +188,20 @@ namespace TranVietTraLamMVC.Controllers
             ViewBag.TagList = tags;
 
             return View("ViewHistory", articles);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetTotalNewsArticles()
+        {
+            var totalArticles = await _newsArticleService.GetTotalNewsArticlesAsync();
+            if (totalArticles == 0)
+            {
+                ViewBag.Error = "No news articles found.";
+                return View("ReportStatistic");
+            }
+
+            ViewBag.TotalArticles = totalArticles;
+            return View("ReportStatistic");
         }
     }
 }
